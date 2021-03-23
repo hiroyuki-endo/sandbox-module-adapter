@@ -1,0 +1,42 @@
+plugins {
+	id 'java-library'
+	id 'maven-publish'
+}
+
+group = 'sandbox.module'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+	mavenLocal()
+}
+
+dependencies {
+	api 'org.springframework:spring-context:5.3.5'
+}
+
+test {
+	useJUnitPlatform()
+}
+
+task sourceJar(type: Jar) {
+	from sourceSets.main.allJava
+}
+
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			from components.java
+
+			versionMapping {
+				usage('java-api') {
+					fromResolutionOf('runtimeClasspath')
+				}
+				usage('java-runtime') {
+					fromResolutionResult()
+				}
+			}
+		}
+	}
+}
