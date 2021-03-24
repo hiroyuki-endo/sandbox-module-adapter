@@ -30,6 +30,7 @@
 * ベースアプリケーションのビルド
 
     ```
+    cd ./app
     ./gradlew build
     ```
   app/build/libs に app-base-0.0.1-SNAPSHOT.jar が作成される
@@ -37,6 +38,7 @@
 * モジュールAのビルド
 
     ```
+    cd ./app
     ./gradlew build -PMODULE_ID=a
     ```
   app/build/libs に app-a-0.0.1-SNAPSHOT.jar が作成される
@@ -44,6 +46,7 @@
 * モジュールBのビルド
 
     ```
+    cd ./app
     ./gradlew build -PMODULE_ID=b
     ```
   app/build/libs に app-b-0.0.1-SNAPSHOT.jar が作成される
